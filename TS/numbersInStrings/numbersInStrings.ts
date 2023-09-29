@@ -9,6 +9,12 @@ function solve(input: string) {
         if (!isNaN(inputToNumber[index])) {
           sum += String(element);
         }
+        if (
+          index++ === inputToNumber.length - 1 &&
+          !isNaN(inputToNumber[index++])
+        ) {
+          sum += String(element);
+        }
         if (isNaN(inputToNumber[index++])) {
           acc.push(sum);
           sum = "";
@@ -19,4 +25,4 @@ function solve(input: string) {
   );
 }
 
-console.log(solve("lu1j8qbbb85"));
+console.log(solve("u851j8q852"));
