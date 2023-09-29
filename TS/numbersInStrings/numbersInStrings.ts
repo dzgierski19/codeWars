@@ -2,19 +2,21 @@ function solve(input: string) {
   const inputToNumber: number[] = input
     .split("")
     .map((element) => Number(element));
-  let sum = 0;
+  let sum = "";
   return Math.max(
-    ...inputToNumber.reduce((acc, element, index) => {
-      if (!isNaN(inputToNumber[index])) {
-        sum += element;
-      }
-      if (isNaN(inputToNumber[index++])) {
-        acc.push(sum);
-        sum = 0;
-      }
-      return acc;
-    }, [] as number[])
+    ...inputToNumber
+      .reduce((acc, element, index) => {
+        if (!isNaN(inputToNumber[index])) {
+          sum += String(element);
+        }
+        if (isNaN(inputToNumber[index++])) {
+          acc.push(sum);
+          sum = "";
+        }
+        return acc;
+      }, [] as string[])
+      .map((element) => Number(element))
   );
 }
 
-console.log(solve("123as3bdu42sdn"));
+console.log(solve("lu1j8qbbb85"));
