@@ -1,6 +1,6 @@
 export function createPhoneNumber(numbers: number[]): string {
   if (numbers.length !== 10) {
-    throw new Error("Pleease type array with 10 numbers");
+    throw new Error("Please type array with 10 numbers");
   }
   const stringed = numbers.map((element) => String(element));
   return stringed.reduce((acc, element, index) => {
@@ -22,8 +22,6 @@ export function createPhoneNumber(numbers: number[]): string {
     return acc;
   }, "(");
 }
-
-// (123) 456-7890"
 
 const exampleNumber = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
