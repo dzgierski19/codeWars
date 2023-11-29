@@ -2,17 +2,20 @@ const reduce = (
   nums: number[],
   fn: (accum: number, curr: number) => number,
   init: number,
-  sum = 0
+  sum = init
 ): number => {
+  if (nums.length === 0) {
+    return sum;
+  }
   sum = fn(sum, nums[0]);
   nums.shift();
   if (nums.length > 0) {
     return reduce(nums, fn, init, sum);
   }
-  return sum + init;
+  return sum;
 };
 
-const result = reduce(
+const result2 = reduce(
   [1, 2, 3, 4],
   (accum, curr) => {
     return accum + curr;
@@ -20,4 +23,12 @@ const result = reduce(
   0
 );
 
-console.log(result);
+const result3 = reduce(
+  [],
+  function sum(accum, curr) {
+    return 0;
+  },
+  25
+);
+
+console.log(result3);
